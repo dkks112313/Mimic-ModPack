@@ -1,0 +1,26 @@
+{
+  "name": "untitled10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "downloadMode.js",
+  "scripts": {
+    "test": "node categories.js",
+    "start": "node index.js",
+    "start-download": "node downloadModePacksInstall.js",
+    "search": "node search.js",
+    "download-mode-packs": "node downloadModePacks.js",
+    "download-mode": "node downloadMode.js",
+    "download-resource-packs": "node downloadResourcePacks.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dkks112313/web-launcher.git"
+  },
+  "private": true,
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "axios": "^1.7.9",
+    "fs-extra": "^11.3.0",
+    "minecraft-java-core": "^3.11.4"
+  }
+}
