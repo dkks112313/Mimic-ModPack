@@ -30,12 +30,12 @@ const rootPath = 'C:\\Users\\ovcha\\web-launcher\\untitled10\\'
 const entityMinecraft = {
     mode: 'C:\\Users\\ovcha\\web-launcher\\untitled10\\.Minecraft\\mods',
     resources: 'C:\\Users\\ovcha\\web-launcher\\untitled10\\.Minecraft\\resourcepacks',
+    //data: 'C:\\Users\\ovcha\\web-launcher\\untitled10\\.Minecraft\\resourcepacks',
     world: 'C:\\Users\\ovcha\\web-launcher\\untitled10\\.Minecraft\\saves',
     screen: 'C:\\Users\\ovcha\\web-launcher\\untitled10\\.Minecraft\\screenshots',
     shaders: 'C:\\Users\\ovcha\\web-launcher\\untitled10\\.Minecraft\\shaderpacks',
-    textures: 'C:\\Users\\ovcha\\web-launcher\\untitled10\\.Minecraft\\texturepacks',
-    server: 'C:\\Users\\ovcha\\web-launcher\\untitled10\\.Minecraft\\server-resource-packs',
-    core: 'C:\\Users\\ovcha\\web-launcher\\untitled10\\.Minecraft\\coremods'
+    //textures: 'C:\\Users\\ovcha\\web-launcher\\untitled10\\.Minecraft\\texturepacks',
+    server: 'C:\\Users\\ovcha\\web-launcher\\untitled10\\.Minecraft\\server-resource-packs'
 }
 
 Object.values(entityMinecraft).forEach(data => {
@@ -98,6 +98,9 @@ function downloadMode(modId, fileId) {
                             case 6552:
                                 pathToDownload = entityMinecraft.shaders
                                 break;
+                            case 6945:
+                                pathToDownload = entityMinecraft.resources
+                                break;
                             case 12:
                                 pathToDownload = entityMinecraft.resources
                                 break;
@@ -152,13 +155,14 @@ fetch(`https://api.curseforge.com/v1/mods/search?gameId=432&slug=${nameUrl}`,
                     })
                     .then(() => {
                         const paths = path.join(rootPath, 'overrides')
-
-                        fs.promises.readdir(paths, {recursive: false})
-                            .then(files =>
-                                files.forEach(folder => {
-                                    move(path.join(paths, folder), path.join(rootPath, '.Minecraft', folder))
-                                })
-                            )
+                        if (fs.existsSync(paths)) {
+                            fs.promises.readdir(paths, {recursive: false})
+                                .then(files =>
+                                    files.forEach(folder => {
+                                        move(path.join(paths, folder), path.join(rootPath, '.Minecraft', folder))
+                                    })
+                                )
+                        }
                     })
             })
     })

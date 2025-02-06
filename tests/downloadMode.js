@@ -1,4 +1,4 @@
-const { downloadFile } = require('./download')
+const { downloadFile } = require('../curseforge/download')
 
 const trueUrl = 'https://www.curseforge.com/minecraft/mc-mods/geckolib'
 const nameUrl = trueUrl.split('/').pop()

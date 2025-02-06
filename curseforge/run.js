@@ -1,13 +1,16 @@
 const {Mojang, Launch} = require('minecraft-java-core');
+const fs = require("fs");
+
 const launch = new Launch();
+const jsonObj = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
 
 async function downloadMinecraftAndRun() {
     let opt = {
         authenticator: await Mojang.login('name'),
-        version: '1.21',
+        version: jsonObj['minecraft']['version'],
         loader: {
-            type: 'neoforge',
-            build: 'latest',
+            type: jsonObj['minecraft']['modLoaders'][0]['id'].split('-')[0],
+            build: jsonObj['minecraft']['modLoaders'][0]['id'].split('-')[1],
             enable: true,
         },
         JVM_ARGS: [],

@@ -2,15 +2,15 @@
   "name": "untitled10",
   "version": "1.0.0",
   "description": "",
-  "main": "downloadMode.js",
+  "main": "tests/downloadMode.js",
   "scripts": {
-    "test": "node categories.js",
-    "start": "node index.js",
-    "start-download": "node downloadModePacksInstall.js",
-    "search": "node search.js",
-    "download-mode-packs": "node downloadModePacks.js",
-    "download-mode": "node downloadMode.js",
-    "download-resource-packs": "node downloadResourcePacks.js"
+    "test": "node tests/categories.js",
+    "start": "node curseforge/run.js",
+    "start-download": "node curseforge/downloadModePacksInstall.js",
+    "search": "node tests/search.js",
+    "download-mode-packs": "node tests/downloadModePacks.js",
+    "download-mode": "node tests/downloadMode.js",
+    "download-resource-packs": "node tests/downloadResourcePacks.js"
   },
   "repository": {
     "type": "git",

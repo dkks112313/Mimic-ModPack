@@ -1,4 +1,4 @@
-const {downloadFile} = require('./download')
+const {downloadFile} = require('../curseforge/download')
 
 const url = 'https://www.curseforge.com/minecraft/modpacks/all-the-mods-10'
 const nameUrl = url.split('/').pop()
