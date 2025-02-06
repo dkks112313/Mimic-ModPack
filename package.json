@@ -4,6 +4,7 @@
   "description": "",
   "main": "tests/downloadMode.js",
   "scripts": {
+    "opti": "node optifine/getVersionOptifine.js",
     "test": "node tests/categories.js",
     "start": "node curseforge/run.js",
     "start-download": "node curseforge/downloadModePacksInstall.js",
@@ -21,6 +22,7 @@
     "adm-zip": "^0.5.16",
     "axios": "^1.7.9",
     "fs-extra": "^11.3.0",
+    "jsdom": "^26.0.0",
     "minecraft-java-core": "^3.11.4"
   }
 }
